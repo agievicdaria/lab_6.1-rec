@@ -24,7 +24,7 @@ void printArray(int arr[], int size, int index = 0) {
     }
 }
 
-void processArray(int arr[], int size, int index, int &count, int &sum) {
+void calculateSumAndChangeToZero(int arr[], int size, int index, int &count, int &sum) {
     if (index >= size) {
         return;
     }
@@ -35,7 +35,7 @@ void processArray(int arr[], int size, int index, int &count, int &sum) {
         arr[index] = 0;
     }
 
-    processArray(arr, size, index + 1, count, sum);
+    calculateSumAndChangeToZero(arr, size, index + 1, count, sum);
 }
 
 int main() {
@@ -49,7 +49,7 @@ int main() {
 
     int count = 0;
     int sum = 0;
-    processArray(array, ARRAY_SIZE, 0, count, sum);
+    calculateSumAndChangeToZero(array, ARRAY_SIZE, 0, count, sum);
 
     cout << "Кількість елементів, які задовольняють критерії: " << count << endl;
     cout << "Сума елементів, які задовольняють критерії: " << sum << endl;
